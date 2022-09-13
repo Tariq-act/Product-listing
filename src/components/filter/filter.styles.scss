@@ -1,0 +1,63 @@
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .select-filter {
+    select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      color: gray;
+      font-size: inherit;
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+    .btn-reset {
+      background: none;
+      border: none;
+      color: blue;
+      font-size: inherit;
+    }
+  }
+
+  .search-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    input {
+      font-size: inherit;
+      border: none;
+      padding: 0.5rem;
+      box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+      background-color: rgba(128, 128, 128, 0.075);
+
+      &:focus {
+        outline: none;
+        box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .addCart {
+      button {
+        border: none;
+        font-size: inherit;
+        padding: 0.75rem 1rem;
+        background-color: #02a0cc;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+}

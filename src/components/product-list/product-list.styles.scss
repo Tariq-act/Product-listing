@@ -1,0 +1,13 @@
+.card-list {
+  margin-top: 1rem;
+
+  ul {
+    border-bottom: 1px solid black;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr;
+    list-style: none;
+    font-weight: 500;
+  }
+}

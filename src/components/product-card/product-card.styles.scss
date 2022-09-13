@@ -1,0 +1,45 @@
+.card-container .card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  .image {
+    width: 100px;
+    height: 100px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .buy {
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    .number-input {
+      font-size: inherit;
+      width: 30px;
+      border: none;
+      padding: 0.2rem 0.5rem;
+      box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+      background-color: rgba(128, 128, 128, 0.075);
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      border: none;
+      background-color: #000;
+      color: #fff;
+      padding: 0.3rem 0.9rem;
+      cursor: pointer;
+    }
+  }
+}
