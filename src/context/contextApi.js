@@ -69,7 +69,7 @@ export const GlobalProvider = ({ children }) => {
   // Total
   useEffect(() => {
     const total = cartItems.reduce(
-      (total, cartItem) => total + cartItem.quantity + cartItem.price,
+      (total, cartItem) => total + cartItem.quantity * cartItem.price,
       0
     );
 
@@ -120,6 +120,7 @@ export const GlobalProvider = ({ children }) => {
         inputSearch,
         check,
         price,
+        setCartItems,
         cartItems,
         cartTotal,
         handlePrice,

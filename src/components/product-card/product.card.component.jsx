@@ -35,6 +35,7 @@ const ProductCard = ({ data }) => {
                 <i className='fa-solid fa-cart-shopping'></i>
               </button>
             </div>
+            <input type='checkbox' />
           </div>
         </div>
       </div>
