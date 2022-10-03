@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 import { GlobalContext } from '../../context/contextApi';
 
@@ -8,6 +10,8 @@ const ProductCard = ({ data }) => {
   const { title, image, description, price, stock, quantity } = data;
   const { addCartItem, cartItems, increaseQuantity, decreaseQuantity } =
     useContext(GlobalContext);
+
+  let check = cartItems.find((item) => item.id === data.id) ? true : false;
 
   return (
     <div>
@@ -35,7 +39,7 @@ const ProductCard = ({ data }) => {
                 <i className='fa-solid fa-cart-shopping'></i>
               </button>
             </div>
-            <input type='checkbox' />
+            <input type='checkbox' defaultChecked={check} />
           </div>
         </div>
       </div>

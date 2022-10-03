@@ -16,7 +16,6 @@ export const GlobalProvider = ({ children }) => {
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [inputSearch, setInputSearch] = useState('');
-  const [check, setCheck] = useState(false);
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
@@ -104,10 +103,6 @@ export const GlobalProvider = ({ children }) => {
     setList(filteredList);
   };
 
-  const handleCheck = () => {
-    setCheck((prev) => !prev);
-  };
-
   useEffect(() => {
     applyFilter();
   }, [applyFilter]);
@@ -118,7 +113,6 @@ export const GlobalProvider = ({ children }) => {
         list,
         category,
         inputSearch,
-        check,
         price,
         setCartItems,
         cartItems,
@@ -126,7 +120,6 @@ export const GlobalProvider = ({ children }) => {
         handlePrice,
         handleCategory,
         handleSearch,
-        handleCheck,
         addCartItem,
         removeCartItem,
         resetButton,
