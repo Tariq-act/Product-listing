@@ -21,16 +21,27 @@
 
     gap: 0.5rem;
 
-    .number-input {
-      font-size: inherit;
-      width: 30px;
-      border: none;
-      padding: 0.2rem 0.5rem;
-      box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
-      background-color: rgba(128, 128, 128, 0.075);
+    // .number-input {
+    //   font-size: inherit;
+    //   width: 30px;
+    //   border: none;
+    //   padding: 0.2rem 0.5rem;
+    //   box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+    //   background-color: rgba(128, 128, 128, 0.075);
 
-      &:focus {
-        outline: none;
+    //   &:focus {
+    //     outline: none;
+    //   }
+    // }
+
+    .quantity {
+      display: flex;
+
+      .value {
+        margin: 0 10px;
+      }
+      .arrow {
+        cursor: pointer;
       }
     }
 

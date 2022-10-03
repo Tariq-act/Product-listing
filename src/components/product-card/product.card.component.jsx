@@ -5,9 +5,9 @@ import { GlobalContext } from '../../context/contextApi';
 import './product-card.styles.scss';
 
 const ProductCard = ({ data }) => {
-  const { title, image, description, price, stock } = data;
-
-  const { addCartItem, cartItems } = useContext(GlobalContext);
+  const { title, image, description, price, stock, quantity } = data;
+  const { addCartItem, cartItems, increaseQuantity, decreaseQuantity } =
+    useContext(GlobalContext);
 
   return (
     <div>
@@ -21,13 +21,20 @@ const ProductCard = ({ data }) => {
           <div className='stock'>{stock ? 'In stock' : 'Out of stock'}</div>
           <div className='price'>${price}</div>
           <div className='buy'>
-            <input type='number' className='number-input' defaultValue={'1'} />
+            <div className='quantity'>
+              <div className='arrow' onClick={() => decreaseQuantity(data)}>
+                &#10094;
+              </div>
+              <div className='value'>{quantity}</div>
+              <div className='arrow' onClick={() => increaseQuantity(data)}>
+                &#10095;
+              </div>
+            </div>
             <div className='btn-add'>
               <button onClick={() => addCartItem(cartItems, data)}>
                 <i className='fa-solid fa-cart-shopping'></i>
               </button>
             </div>
-            {/* <input type='checkbox' checked={check} /> */}
           </div>
         </div>
       </div>

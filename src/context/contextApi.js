@@ -2,12 +2,12 @@ import { createContext, useState, useEffect } from 'react';
 
 import data from '../dummyData.json';
 
-const intialState = {
+const initialState = {
   list: [],
   cartItems: [],
 };
 
-export const GlobalContext = createContext(intialState);
+export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
   const [list, setList] = useState(data);
@@ -21,6 +21,7 @@ export const GlobalProvider = ({ children }) => {
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
+
   const handlePrice = (e) => {
     setPrice(e.target.value);
   };
@@ -29,20 +30,24 @@ export const GlobalProvider = ({ children }) => {
     setInputSearch(e.target.value);
   };
 
+  const increaseQuantity = (data) => {
+    let allList = [...list];
+    let index = allList.indexOf(data);
+    allList[index].quantity++;
+
+    setList(allList);
+  };
+
+  const decreaseQuantity = (data) => {
+    let allList = [...list];
+    let index = allList.indexOf(data);
+    if (allList[index].quantity >= 1) allList[index].quantity--;
+
+    setList(allList);
+  };
+
   const addCartItem = (cartItems, productToAdd) => {
-    const existingCartItem = cartItems.find(
-      (cartItem) => cartItem.id === productToAdd.id
-    );
-
-    if (existingCartItem) {
-      return cartItems.map(
-        (cartItem) =>
-          cartItem.id === productToAdd.id &&
-          setCartItems([{ ...cartItem, quantity: cartItem.quantity + 1 }])
-      );
-    }
-
-    return setCartItems([...cartItems, { ...productToAdd, quantity: 1 }]);
+    return setCartItems([...cartItems, { ...productToAdd }]);
   };
 
   const removeCartItem = (cartItems, cartItemToRemove) => {
@@ -59,7 +64,10 @@ export const GlobalProvider = ({ children }) => {
     setCartTotal(total.toFixed(2));
   }, [cartTotal, cartItems]);
 
-  console.log(cartTotal);
+  const resetButton = () => {
+    setCategory('');
+    setPrice('');
+  };
 
   // eslint-disable-next-line
   const applyFilter = () => {
@@ -108,6 +116,9 @@ export const GlobalProvider = ({ children }) => {
         handleCheck,
         addCartItem,
         removeCartItem,
+        resetButton,
+        increaseQuantity,
+        decreaseQuantity,
       }}
     >
       {children}

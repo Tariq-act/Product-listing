@@ -14,6 +14,7 @@ const Filter = () => {
     handleSearch,
     price,
     handlePrice,
+    resetButton,
   } = useContext(GlobalContext);
   return (
     <>
@@ -41,7 +42,7 @@ const Filter = () => {
             <option value='1000'>$1000</option>
           </select>
 
-          <button className='btn-reset'>
+          <button className='btn-reset' onClick={() => resetButton()}>
             <i className='fa-sharp fa-solid fa-arrow-rotate-left'></i> reset
           </button>
         </div>

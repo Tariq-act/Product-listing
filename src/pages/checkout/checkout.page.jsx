@@ -30,11 +30,11 @@ const Checkout = () => {
       <div className='cart-total'>
         <div className='sub-total'>
           <h3>Subtotal</h3>
-          <div className='sub-price'>{cartTotal}</div>
+          <div className='sub-price'>${cartTotal}</div>
         </div>
         <div className='total'>
           <h2>Total</h2>
-          <div className='price'>{cartTotal}</div>
+          <div className='price'>${cartTotal}</div>
         </div>
 
         <button>Proceed to checkout</button>
