@@ -41,12 +41,24 @@ export const GlobalProvider = ({ children }) => {
   const decreaseQuantity = (data) => {
     let allList = [...list];
     let index = allList.indexOf(data);
-    if (allList[index].quantity >= 1) allList[index].quantity--;
+    if (allList[index].quantity > 1) allList[index].quantity--;
 
     setList(allList);
   };
 
   const addCartItem = (cartItems, productToAdd) => {
+    const existingCartItem = cartItems.find(
+      (cartItem) => cartItem.id === productToAdd.id
+    );
+
+    if (existingCartItem) {
+      return cartItems.map((cartItem) =>
+        cartItem.id === productToAdd.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+    }
+
     return setCartItems([...cartItems, { ...productToAdd }]);
   };
 
